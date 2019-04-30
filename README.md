@@ -14,9 +14,11 @@ User 1 - Player - Adventurer
 * To look up for spells for their character 
 * Searches driven by spell class and level
 * Easy to use to augment real world gameplay
+
 User 2 - Player - Dungeon Master 
 * Quickly find spell information for NPCs
 * A tool to help adventurers build their characters
+
 User 3 - Causal User/Potential player
 * Easy to read info source on a key element of DnD game play
 * Potentially including more eye catching media.
