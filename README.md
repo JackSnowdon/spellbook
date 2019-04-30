@@ -11,15 +11,15 @@ The app has been designed to allow users to view, edit, and add spells to a data
 
 ### User Stories
 User 1 - Player - Adventurer 
-*To look up for spells for their character 
-*Searches driven by spell class and level
-*Easy to use to augment real world gameplay
+* To look up for spells for their character 
+* Searches driven by spell class and level
+* Easy to use to augment real world gameplay
 User 2 - Player - Dungeon Master 
-*Quickly find spell information for NPCs
-*A tool to help adventurers build their characters
+* Quickly find spell information for NPCs
+* A tool to help adventurers build their characters
 User 3 - Causal User/Potential player
-*Easy to read info source on a key element of DnD game play
-*Potentially including more eye catching media.
+* Easy to read info source on a key element of DnD game play
+* Potentially including more eye catching media.
 
 Links to wireframes/schema
 For handling the data, I chose MongoDB as the database, due to its non relational format fitting the needs of the nature of DND (Escapism can’t be defined!) This allows certain spells with more conditions to be handled in a quicker manor. Using dbdiagram.io to create a mockup of the schema I chose to drill down the fixed outlines (Die Value, Spell level) into their own collections to allow each unique spell to pick values from said collections.
@@ -28,14 +28,14 @@ For handling the data, I chose MongoDB as the database, due to its non relationa
 ### Existing Features
 
 Spellfinder
-*Allow users to search for spells filtering and ordering using key queries
+* Allow users to search for spells filtering and ordering using key queries
 Spell List
-*Allow players to view, add, edit and delete spells from their own player spell lists
+* Allow players to view, add, edit and delete spells from their own player spell lists
 Register/Login
-*Log in to view personalised character  spell lists
-*While logged into characters can add their own homebrew spells
+* Log in to view personalised character  spell lists
+* While logged into characters can add their own homebrew spells
 
-###Features left to implement 
+### Features left to implement 
 Using Spells
 *Allow players to interact with a rng generator to use the spells while playing
 Spell slots
