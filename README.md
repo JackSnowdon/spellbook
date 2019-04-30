@@ -31,15 +31,19 @@ For handling the data, I chose MongoDB as the database, due to its non relationa
 
 Spellfinder
 * Allow users to search for spells filtering and ordering using key queries
+
 Spell List
 * Allow players to view, add, edit and delete spells from their own player spell lists
+
 Register/Login
 * Log in to view personalised character  spell lists
 * While logged into characters can add their own homebrew spells
 
 ### Features left to implement 
+
 Using Spells
-*Allow players to interact with a rng generator to use the spells while playing
+* Allow players to interact with a rng generator to use the spells while playing
+
 Spell slots
-*Players have a certain amount of spell slots, which act as MP (Magic points)
-*A new feature would be to include this within Spellfinder General
+* Players have a certain amount of spell slots, which act as MP (Magic points)
+* A new feature would be to include this within Spellfinder General
