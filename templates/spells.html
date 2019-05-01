@@ -15,8 +15,10 @@
     <div class="col s12">    
         {{spell.casting_time}}
     </div>    
-    <div class="col s12">    
-        {{spell.components}}
+    <div class="col s12"> 
+        {% for component in spell.components %}
+        {{component}}
+        {% endfor %}
     </div>    
     <div class="col s12">    
         {{spell.duration}}
@@ -25,7 +27,7 @@
         {{spell.description}}
     </div>    
     <div class="col s12">        
-        {{spell.die_value}}
+        d{{spell.die_value}}
     </div>    
     <div class="col s12">    
         {{spell.die_amount}}
