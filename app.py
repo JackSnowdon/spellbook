@@ -13,7 +13,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/browse_spells')
 def browse_spells():
-    return render_template("spells.html", spells=mongo.db.spells.find())
+    return render_template("view_spells.html", spells=mongo.db.spells.find())
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
