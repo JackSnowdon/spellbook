@@ -1,10 +1,10 @@
 {% extends 'base.html'%} {% block content %}
     {% for spell in spells %}
     <div class="col s12">
-        {{spell.spell_name}}
+        Name: {{spell.spell_name}}
     </div>
     <div class="col s12">
-        {{spell.school}}
+        School: {{spell.school}}
     </div>
     <div class="col s12">    
         {{spell.spell_level}}
