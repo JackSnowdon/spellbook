@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # Debugger for running locally, change to False when pushing to heroku
 
-app.config['DEBUG'] = True
+app.config['DEBUG'] = False
 #app.config["MONGO_DBNAME"] = 'dnd_project3'
 #app.config["MONGO_URI"] = 'mongodb+srv://root:r00tuser@myfirstcluster-rxis3.mongodb.net/dnd_project3?retryWrites=true'
 
