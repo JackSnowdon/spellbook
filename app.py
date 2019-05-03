@@ -30,6 +30,12 @@ def add_spell():
     spells=mongo.db.spells.find(), die=mongo.db.die.find(),
     level=mongo.db.level.find(), school=mongo.db.school.find())
     
+@app.route('/insert_spell', methods=['POST'])
+def insert_spell():
+    spells = mongo.db.spells
+    spells.insert_one(request.form.to_dict())
+    return redirect(url_for('browse_spells'))
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')))

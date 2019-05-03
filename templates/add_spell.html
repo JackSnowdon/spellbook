@@ -1,10 +1,10 @@
 {% extends 'base.html'%} {% block content %}
 <h2>Add spell</h2>
 <div class="row">
-    <form action="" method="POST" class="col s12">
+    <form action="{{ url_for('insert_spell') }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
-                <input placeholder="Spell Name" id="spell_name" type="text" class="validate">
+                <input placeholder="Spell Name" name="spell_name" id="spell_name" type="text" class="validate">
                 <label for="spell_name">Spell Name</label>
             </div>
         </div>
@@ -18,7 +18,7 @@
                 <label>Spell Level - Choose your spell level</label>
             </div>
             <div class="input-field col s12 m6">
-                <select id="school_name" name="school_name">
+                <select id="school" name="school">
                 {% for s in school %} 
                   <option value="{{s.school_name}}">{{s.school_name}}</option>
                 {% endfor %}
@@ -28,17 +28,17 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
-                <input placeholder="Enter n/a if required" id="casting_time" type="text" class="validate">
+                <input placeholder="Enter n/a if required" name="casting_time" id="casting_time" type="text" class="validate">
                 <label for="casting_time">Casting time</label>
             </div>
             <div class="input-field col s12 m6">
-                <input placeholder="Enter n/a if required" id="range" type="text" class="validate">
+                <input placeholder="Enter n/a if required" name="range" id="range" type="text" class="validate">
                 <label for="range">Range</label>
             </div>
         </div>
       <div class="row">
             <div class="input-field col s12 m6">
-                <select multiple id="component" name="component">
+                <select multiple id="components" name="components">
                 {% for component in components %} 
                   <option value="{{component.component}}">{{component.component}}</option>
                 {% endfor %}
@@ -46,7 +46,7 @@
                 <label>Component - Choose your Components</label>
             </div>
             <div class="input-field col s12 m6">
-                <input placeholder="Enter n/a if required" id="duration" type="text" class="validate">
+                <input placeholder="Enter n/a if required" name="duration" id="duration" type="text" class="validate">
                 <label for="duration">Duration</label>
             </div>
         </div>
@@ -60,9 +60,14 @@
                 <label>Die - Die Value </label>
             </div>
             <div class="input-field col s12 m6">
-                <input placeholder="Enter n/a if required" id="die_amount" type="text" class="validate">
+                <input placeholder="Enter n/a if required" name="die_amount" id="die_amount" type="text" class="validate">
                 <label for="die_amount">Die amount</label>
             </div>
+        </div>
+        <div class="row">
+             <button class="btn waves-effect waves-light" type="submit" name="action">Add
+                <i class="material-icons right"></i>
+              </button>
         </div>
     </form>
 </div>
