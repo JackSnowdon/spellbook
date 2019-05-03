@@ -1,7 +1,4 @@
 {% extends 'base.html'%} {% block content %}
-<!---  {% for d in die %}
-{{d.die_value}}
-{% endfor %} --->
 <h2>Add spell</h2>
 <div class="row">
     <form action="" method="POST" class="col s12">
@@ -39,17 +36,34 @@
                 <label for="range">Range</label>
             </div>
         </div>
-      <!--  <div class="row">
+      <div class="row">
             <div class="input-field col s12 m6">
                 <select multiple id="component" name="component">
                 {% for component in components %} 
-                  <option value="{{component.components}}">{{component.components}}</option>
+                  <option value="{{component.component}}">{{component.component}}</option>
                 {% endfor %}
             </select>
                 <label>Component - Choose your Components</label>
             </div>
-            
-        </div> -->
+            <div class="input-field col s12 m6">
+                <input placeholder="Enter n/a if required" id="duration" type="text" class="validate">
+                <label for="duration">Duration</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <select id="die" name="die">
+                {% for d in die %} 
+                  <option value="{{d.die_value}}">{{d.die_value}}</option>
+                {% endfor %}
+            </select>
+                <label>Die - Die Value </label>
+            </div>
+            <div class="input-field col s12 m6">
+                <input placeholder="Enter n/a if required" id="die_amount" type="text" class="validate">
+                <label for="die_amount">Die amount</label>
+            </div>
+        </div>
     </form>
 </div>
 
