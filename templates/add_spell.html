@@ -1,6 +1,58 @@
 {% extends 'base.html'%} {% block content %}
-{% for d in die %}
+<!---  {% for d in die %}
 {{d.die_value}}
-{% endfor %}
+{% endfor %} --->
+<h2>Add spell</h2>
+<div class="row">
+    <form action="" method="POST" class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Spell Name" id="spell_name" type="text" class="validate">
+                <label for="spell_name">Spell Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <select id="spell_level" name="spell_level">
+                {% for l in level %} 
+                  <option value="{{l.spell_level}}">{{l.spell_level}}</option>
+                {% endfor %}
+            </select>
+                <label>Spell Level - Choose your spell level</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <select id="school_name" name="school_name">
+                {% for s in school %} 
+                  <option value="{{s.school_name}}">{{s.school_name}}</option>
+                {% endfor %}
+            </select>
+                <label>Spell Level - Choose your spell school</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <input placeholder="Enter n/a if required" id="casting_time" type="text" class="validate">
+                <label for="casting_time">Casting time</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <input placeholder="Enter n/a if required" id="range" type="text" class="validate">
+                <label for="range">Range</label>
+            </div>
+        </div>
+      <!--  <div class="row">
+            <div class="input-field col s12 m6">
+                <select multiple id="component" name="component">
+                {% for component in components %} 
+                  <option value="{{component.components}}">{{component.components}}</option>
+                {% endfor %}
+            </select>
+                <label>Component - Choose your Components</label>
+            </div>
+            
+        </div> -->
+    </form>
+</div>
 
 {% endblock %}
+
+<!--- "{{ url_for('insert_spell') }}" --->
