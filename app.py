@@ -5,13 +5,7 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
-# Debugger for running locally, change to False when pushing to heroku
-
-#app.config['DEBUG'] = False
-#app.config["MONGO_DBNAME"] = 'dnd_project3'
-#app.config["MONGO_URI"] = 'mongodb+srv://root:r00tuser@myfirstcluster-rxis3.mongodb.net/dnd_project3?retryWrites=true'
-
-# If statement to ensure env vars are set running locally or on heroku
+# If statement to ensure env vars and debug are set appropriately for deployment
 
 if os.environ.get('C9_HOSTNAME'):
     import config
@@ -29,6 +23,12 @@ mongo = PyMongo(app)
 @app.route('/browse_spells')
 def browse_spells():
     return render_template("view_spells.html", spells=mongo.db.spells.find())
+    
+@app.route('/add_spell')
+def add_spell():
+    return render_template("add_spell.html", components=mongo.db.components.find(), 
+    spells=mongo.db.spells.find(), die=mongo.db.die.find(),
+    level=mongo.db.level.find(), school=mongo.db.school.find())
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
