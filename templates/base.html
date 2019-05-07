@@ -12,12 +12,24 @@
 </head>
 
 <body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="{{url_for('browse_spells')}}" class="brand-logo center">Spellfinder General</a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="{{url_for('add_spell')}}">Add Spell</a></li>
+                    <li><a href="{{url_for('browse_spells')}}">View Spells</a></li>
+                    <!--- <li><a href="collapsible.html">JavaScript</a></li> --->
+                </ul>
+            </div>
+        </nav>
+    </header>
     <div class="bg-color">
         <div class="container">
             {% block content %} {% endblock %}
         </div>
     </div>
-    
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
