@@ -1,35 +1,44 @@
-{% extends 'base.html'%} {% block content %} 
-{% for spell in spells %}
-<div class="row card-panel orange lighten-1 col 6">
-    <div class="">
-        Name: {{spell.spell_name}}
+{% extends 'base.html'%} {% block content %}
+
+<div class="row">
+    {% for spell in spells %}
+    <div class="col s4">
+        <div class="card-panel spell-box teal">
+
+            <div class="">
+                Name: {{spell.spell_name}}
+            </div>
+            <div class="">
+                School: {{spell.school}}
+            </div>
+            <div class="">
+                Level: {{spell.spell_level}}
+            </div>
+            <div class="">
+                Range: {{spell.range}}
+            </div>
+            <div class="">
+                Casting Time: {{spell.casting_time}}
+            </div>
+            <div class="">
+                Components: {% for component in spell.components %} {{component}} {% endfor %}
+            </div>
+            <div class="">
+                Duration: {{spell.duration}}
+            </div>
+            
+            <div class="">
+                Die Value: d{{spell.die_value}}
+            </div>
+            <div class="">
+                Die Amount: {{spell.die_amount}}
+            </div>
+            <div class="">
+                Description: {{spell.description}}
+            </div>
+        </div>
     </div>
-    <div class="">
-        School: {{spell.school}}
-    </div>
-    <div class="">
-        Level: {{spell.spell_level}}
-    </div>
-    <div class="">
-        Range: {{spell.range}}
-    </div>
-    <div class="">
-        Casting Time: {{spell.casting_time}}
-    </div>
-    <div class="">
-        Components: {% for component in spell.components %} {{component}} {% endfor %}
-    </div>
-    <div class="">
-        Duration: {{spell.duration}}
-    </div>
-    <div class="">
-        Description: {{spell.description}}
-    </div>
-    <div class="">
-        Die Value: d{{spell.die_value}}
-    </div>
-    <div class="">
-        Die Amount: {{spell.die_amount}}
-    </div>
+    {% endfor %}
 </div>
-<br> {% endfor %} {% endblock %}
+
+<br>{% endblock %}

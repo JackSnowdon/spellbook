@@ -1,16 +1,34 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis:300,500,700');
 
+/* navbar */
+
+.nav-color {
+    background-color: #bf8787
+}
+
+
+/* background colors */
+
 .bg-color {
     background-color: #f9f4f7;
     min-height: 100%;
     min-width: 1024px
 }
 
+/* fonts */
+
 .body-text{
     font-family: 'Dosis', sans-serif;
     color: #f2f2f2
 }
 
-.nav-color {
-    background-color: #bf8787
+/* view spells */
+
+.spell-box {
+    width: 300px;
+    height: 350px;
+    padding: 10px 20px;
+    -webkit-box-shadow: 3px 6px 13px -12px rgba(115,16,16,1);
+    -moz-box-shadow: 3px 6px 13px -12px rgba(115,16,16,1);
+    box-shadow: 3px 6px 13px -12px rgba(115,16,16,1);
 }
