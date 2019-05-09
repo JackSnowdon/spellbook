@@ -16,14 +16,20 @@ else:
     app.config['DEBUG'] = False
     app.config["MONGO_URI"] = os.getenv("MONGO_URI")
     app.config["DB_NAME"] = os.getenv("DB_NAME")
+    
+# Init Mongo app through Flask_PyMongo
 
 mongo = PyMongo(app)
+
+# Read 
 
 @app.route('/')
 @app.route('/browse_spells')
 def browse_spells():
     return render_template("view_spells.html", spells=mongo.db.spells.find())
-    
+     
+#Create 
+
 @app.route('/add_spell')
 def add_spell():
     return render_template("add_spell.html", components=mongo.db.components.find(), 

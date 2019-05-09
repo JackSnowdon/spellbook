@@ -22,6 +22,11 @@
     color: #f2f2f2
 }
 
+.input-text{
+    font-family: 'Dosis', sans-serif;
+    color: #730101
+}
+
 /* view spells */
 
 .spell-box {

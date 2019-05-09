@@ -4,13 +4,13 @@
     <form action="{{ url_for('insert_spell') }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
-                <input placeholder="Spell Name" name="spell_name" id="spell_name" type="text" class="validate">
+                <input placeholder="Spell Name" name="spell_name" id="spell_name" type="text" class="validate input-text">
                 <label for="spell_name">Spell Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
-                <select id="spell_level" name="spell_level">
+                <select class="input-text" id="spell_level" name="spell_level">
                 {% for l in level %} 
                   <option value="{{l.spell_level}}">{{l.spell_level}}</option>
                 {% endfor %}
@@ -18,41 +18,41 @@
                 <label>Spell Level - Choose your spell level</label>
             </div>
             <div class="input-field col s12 m6">
-                <select id="school" name="school">
+                <select class="input-text" id="school" name="school">
                 {% for s in school %} 
-                  <option value="{{s.school_name}}">{{s.school_name}}</option>
+                  <option  value="{{s.school_name}}">{{s.school_name}}</option>
                 {% endfor %}
             </select>
-                <label>Spell Level - Choose your spell school</label>
+                <label>Spell School - Choose your spell school</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
-                <input placeholder="Enter n/a if required" name="casting_time" id="casting_time" type="text" class="validate">
+                <input placeholder="Enter n/a if required" name="casting_time" id="casting_time" type="text" class="validate input-text">
                 <label for="casting_time">Casting time</label>
             </div>
             <div class="input-field col s12 m6">
-                <input placeholder="Enter n/a if required" name="range" id="range" type="text" class="validate">
+                <input placeholder="Enter n/a if required" name="range" id="range" type="text" class="validate input-text">
                 <label for="range">Range</label>
             </div>
         </div>
       <div class="row">
             <div class="input-field col s12 m6">
-                <select multiple id="components" name="components">
-                {% for component in components %} 
-                  <option value="{{component.component}}">{{component.component}}</option>
+                <select multiple id="components" name="components" class="input-text">
+                {% for c in components %} 
+                  <option value="{{c.component}}">{{c.component}}</option>
                 {% endfor %}
             </select>
                 <label>Component - Choose your Components</label>
             </div>
             <div class="input-field col s12 m6">
-                <input placeholder="Enter n/a if required" name="duration" id="duration" type="text" class="validate">
+                <input placeholder="Enter n/a if required" name="duration" id="duration" type="text" class="validate input-text">
                 <label for="duration">Duration</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
-                <select id="die" name="die">
+                <select id="die" name="die" class="input-text">
                 {% for d in die %} 
                   <option value="{{d.die_value}}">{{d.die_value}}</option>
                 {% endfor %}
@@ -60,7 +60,7 @@
                 <label>Die - Die Value </label>
             </div>
             <div class="input-field col s12 m6">
-                <input placeholder="Enter n/a if required" name="die_amount" id="die_amount" type="text" class="validate">
+                <input placeholder="Enter n/a if required" name="die_amount" id="die_amount" type="text" class="validate input-text">
                 <label for="die_amount">Die amount</label>
             </div>
         </div>
