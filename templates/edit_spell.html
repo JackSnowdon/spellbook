@@ -1,10 +1,16 @@
 {% extends 'base.html'%} {% block content %}
-<h2 class="input-text">Add spell</h2>
+
+<!--- 10/05/19
+edit spell will retrive the object from mongoDB, next step is to wire it upto display correct infomation to edit and inserting that back into mongodb---> 
+
+
+
+<h2 class="input-text">Edit spell</h2>
 <div class="row">
-    <form action="{{ url_for('insert_spell') }}" method="POST" class="col s12">
+    <form action="" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
-                <input placeholder="{{spell_name}}" name="spell_name" id="spell_name" type="text" class="validate input-text">
+                <input placeholder="Spell Name" name="spell_name" id="spell_name" type="text" class="validate input-text">
                 <label for="spell_name">Spell Name</label>
             </div>
         </div>

@@ -28,7 +28,7 @@ mongo = PyMongo(app)
 def browse_spells():
     return render_template("view_spells.html", spells=mongo.db.spells.find())
      
-#Create 
+# Create 
 
 @app.route('/add_spell')
 def add_spell():
@@ -41,6 +41,19 @@ def insert_spell():
     spells = mongo.db.spells
     spells.insert_one(request.form.to_dict())
     return redirect(url_for('browse_spells'))
+    
+# Update
+
+#10/05/19 edit spell will retrive the correct object from mongodb
+
+
+@app.route('/edit_spell/<spell_id>')
+def edit_spell(spell_id):
+    the_spell = mongo.db.tasks.find_one({"_id": ObjectId(spell_id)})
+    return render_template('edit_spell.html', spell=the_spell, 
+    components=mongo.db.components.find(), die=mongo.db.die.find(), level = mongo.db.level.find(),
+    school = mongo.db.school.find())
+    
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
