@@ -10,15 +10,23 @@ edit spell will retrive the object from mongoDB, next step is to wire it upto di
     <form action="" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
-                <input placeholder="Spell Name" name="spell_name" id="spell_name" type="text" class="validate input-text">
+                <input placeholder="{{spell.spell_name}}" name="spell_name" id="spell_name" type="text" class="validate input-text">
                 <label for="spell_name">Spell Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
                 <select class="input-text" id="spell_level" name="spell_level">
-                {% for l in level %} 
-                  <option value="{{l.spell_level}}">{{l.spell_level}}</option>
+                    
+<!--- 12/05/19
+working on for loop to select spell level from mongodb --->
+                    
+                {% for l in level %}
+                    {% if l.spell_level == spell.spell_level %}
+                  <option value="{{l.spell_level}}" selected>{{l.spell_level}}</option>
+                    {% else %}
+                  <option value="{{l.spell_level}}">{{l.spell_level}}</option>  
+                    {% endif %}  
                 {% endfor %}
             </select>
                 <label>Spell Level - Choose your spell level</label>
@@ -34,7 +42,7 @@ edit spell will retrive the object from mongoDB, next step is to wire it upto di
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
-                <input placeholder="Enter n/a if required" name="casting_time" id="casting_time" type="text" class="validate input-text">
+                <input placeholder="Enter n/a is required" name="casting_time" id="casting_time" type="text" class="validate input-text">
                 <label for="casting_time">Casting time</label>
             </div>
             <div class="input-field col s12 m6">

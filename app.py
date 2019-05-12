@@ -42,6 +42,13 @@ def insert_spell():
     spells.insert_one(request.form.to_dict())
     return redirect(url_for('browse_spells'))
     
+# Delete
+
+@app.route('/delete_spell/<spell_id>')
+def delete_spell(spell_id):
+    mongo.db.spells.remove({'_id': ObjectId(spell_id)})
+    return redirect(url_for('browse_spells'))    
+    
 # Update
 
 #10/05/19 edit spell will retrive the correct object from mongodb
@@ -51,8 +58,8 @@ def insert_spell():
 def edit_spell(spell_id):
     the_spell = mongo.db.tasks.find_one({"_id": ObjectId(spell_id)})
     return render_template('edit_spell.html', spell=the_spell, 
-    components=mongo.db.components.find(), die=mongo.db.die.find(), level = mongo.db.level.find(),
-    school = mongo.db.school.find())
+    components=mongo.db.components.find(), die=mongo.db.die.find(), level=mongo.db.level.find(),
+    school=mongo.db.school.find())
     
     
 if __name__ == '__main__':
