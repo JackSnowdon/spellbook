@@ -56,7 +56,7 @@ def delete_spell(spell_id):
 
 @app.route('/edit_spell/<spell_id>')
 def edit_spell(spell_id):
-    the_spell = mongo.db.tasks.find_one({"_id": ObjectId(spell_id)})
+    the_spell = mongo.db.spells.find_one({"_id": ObjectId(spell_id)})
     return render_template('edit_spell.html', spell=the_spell, 
     components=mongo.db.components.find(), die=mongo.db.die.find(), level=mongo.db.level.find(),
     school=mongo.db.school.find())
