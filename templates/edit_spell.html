@@ -1,12 +1,12 @@
 {% extends 'base.html'%} {% block content %}
 
-<!--- 13/05/19 edit page wired up, update function to be added. Issues with componets in both adding/editing, aware i need to use an array --->
+<!--- 13/05/19 edit task all wired up, removed components from all forms while finding a way to make them work --->
 
 
 
 <h2 class="input-text">Edit spell</h2>
 <div class="row">
-    <form action="" method="POST" class="col s12">
+    <form action="{{url_for('update_spell', spell_id=spell._id) }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
                 <input name="spell_name" id="spell_name" type="text" class="validate input-text" value="{{spell.spell_name}}">
@@ -50,17 +50,17 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s12 m6">
-                <select multiple id="components" name="components" class="input-text">
+           <div class="input-field col s12 m6">
+            <!---    <select multiple id="components" name="components" class="input-text">
                 {% for c in components %} 
                     {% if c.components == spell.components %}
                   <option value="{{c.component}}" selected>{{c.component}}</option>
                     {% else %}
                   <option value="{{c.component}}">{{c.component}}</option>
                     {% endif %}
-                {% endfor %}
-            </select>
-                <label>Component - Choose your Components</label>
+                {% endfor %} 
+            </select> 
+                <label>Component - Choose your Components</label>--->
             </div>
             <div class="input-field col s12 m6">
                 <input placeholder="Enter n/a if required" name="duration" id="duration" type="text" class="validate input-text" value="{{spell.duration}}">
@@ -69,7 +69,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
-                <select id="die" name="die" class="input-text">
+                <select id="die_value" name="die_value" class="input-text">
                 {% for d in die %} 
                     {% if d.die_value == spell.die_value %}
                     <option value="{{d.die_value}}" selected>{{d.die_value}}</option>

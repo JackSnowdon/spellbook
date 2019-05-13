@@ -51,15 +51,32 @@ def delete_spell(spell_id):
     
 # Update
 
-#10/05/19 edit spell will retrive the correct object from mongodb
-
-
 @app.route('/edit_spell/<spell_id>')
 def edit_spell(spell_id):
     the_spell = mongo.db.spells.find_one({"_id": ObjectId(spell_id)})
     return render_template('edit_spell.html', spell=the_spell, 
     components=mongo.db.components.find(), die=mongo.db.die.find(), level=mongo.db.level.find(),
     school=mongo.db.school.find())
+
+# 13/05/19 edit task all wired up, removed components from all forms while finding a way to make them work
+
+
+@app.route('/update_spell/<spell_id>', methods=["POST"])
+def update_spell(spell_id):
+    spells = mongo.db.spells
+    spells.update( {'_id': ObjectId(spell_id)},
+    {
+        'spell_name':request.form.get('spell_name'),
+        'spell_level':request.form.get('spell_level'),
+        'school': request.form.get('school'),
+        'casting_time': request.form.get('casting_time'),
+        'range':request.form.get('range'),
+    #    'components':request.form.get('components'),
+        'duration':request.form.get('duration'),
+        'die_value':request.form.get('die_value'),
+        'die_amount':request.form.get('die_amount')
+    })
+    return redirect(url_for('browse_spells'))
     
     
 if __name__ == '__main__':

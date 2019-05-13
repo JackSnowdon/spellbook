@@ -38,12 +38,12 @@
         </div>
       <div class="row">
             <div class="input-field col s12 m6">
-                <select multiple id="components" name="components" class="input-text">
+           <!---      <select multiple id="components" name="components" class="input-text">
                 {% for c in components %} 
                   <option value="{{c.component}}">{{c.component}}</option>
                 {% endfor %}
             </select>
-                <label>Component - Choose your Components</label>
+                <label>Component - Choose your Components</label> --->
             </div>
             <div class="input-field col s12 m6">
                 <input placeholder="Enter n/a if required" name="duration" id="duration" type="text" class="validate input-text">
@@ -52,7 +52,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
-                <select id="die_value" name="die_value" class="input-text">
+                <select id="die_value" name="die_value" class="validate input-text" type="text">
                 {% for d in die %} 
                   <option value="{{d.die_value}}">{{d.die_value}}</option>
                 {% endfor %}
