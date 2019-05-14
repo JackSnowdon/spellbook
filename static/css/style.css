@@ -19,7 +19,7 @@
 
 .body-text{
     font-family: 'Dosis', sans-serif;
-    color: #f2f2f2
+    color: #af9817
 }
 
 .input-text{
@@ -27,13 +27,37 @@
     color: #730101
 }
 
+.bold-text {
+    font-weight: 700
+}
+
 /* view spells */
 
 .spell-box {
-    width: 300px;
-    height: 350px;
-    padding: 10px 20px;
+    width: 350px;
+    min-height: 475px;
+    background: url(../img/spellcard_bg.png);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    padding: 10px 25px;
     -webkit-box-shadow: 3px 6px 13px -12px rgba(115,16,16,1);
     -moz-box-shadow: 3px 6px 13px -12px rgba(115,16,16,1);
     box-shadow: 3px 6px 13px -12px rgba(115,16,16,1);
+}
+
+.top-spell-box {
+    text-align: center;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.middle-spell-box {
+    
+}
+
+.spell-name {
+    font-size: 30px;
+    font-weight: 300;
 }

@@ -3,46 +3,43 @@
 <div class="row">
     {% for spell in spells %}
     <div class="col s12 m4">
-        <div class="card-panel spell-box teal hoverable">
+        <div class="card-panel spell-box hoverable">
 
-            <div class="">
-                Name: {{spell.spell_name}}
+            <div class="top-spell-box">
+                <div class="spell-name">{{spell.spell_name}}</div>
+                {% if spell.spell_level == "0" %}
+                <div>{{spell.school}} cantrip </div>
+                {% else %}
+                <div>Level {{spell.spell_level}} {{spell.school}} </div>
+                {% endif %}
             </div>
-            <div class="">
-                School: {{spell.school}}
+            <div class="middle-spell-box">
+                <div>
+                    <span class="bold-text">Casting Time:</span> {{spell.casting_time}}
+                </div>
+                <div>
+                    <span class="bold-text">Range:</span> {{spell.range}}
+                </div>
+                <div>
+                    <span class="bold-text">Components:</span> {% for component in spell.components %} {{component}} {% endfor %}
+                </div>
+                <div>
+                    <span class="bold-text">Duration:</span> {{spell.duration}}
+                </div>
+                <div>
+                    <span class="bold-text">Die:</span> {{spell.die_amount}}d{{spell.die_value}}
+                </div>
             </div>
-            <div class="">
-                Level: {{spell.spell_level}}
-            </div>
-            <div class="">
-                Range: {{spell.range}}
-            </div>
-            <div class="">
-                Casting Time: {{spell.casting_time}}
-            </div>
-            <div class="">
-                Components: {% for component in spell.components %} {{component}} {% endfor %}
-            </div>
-            <div class="">
-                Duration: {{spell.duration}}
-            </div>
-            
-            <div class="">
-                Die Value: d{{spell.die_value}}
-            </div>
-            <div class="">
-                Die Amount: {{spell.die_amount}}
-            </div>
-            <div class="">
-                Description: {{spell.description}}
-            </div>
-            <div class=""> 
-                <a href="{{url_for('edit_spell', spell_id=spell._id)}}" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">edit</i></a>
-                <a href="{{url_for('delete_spell', spell_id=spell._id)}}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
-            </div>
+        </div>
+        <div class="">
+            <a href="{{url_for('edit_spell', spell_id=spell._id)}}" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">edit</i></a>
+            <a href="{{url_for('delete_spell', spell_id=spell._id)}}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
         </div>
     </div>
     {% endfor %}
 </div>
 
 <br>{% endblock %}
+<!-- <div class="">
+                Description: {{spell.description}}
+            </div> -->
