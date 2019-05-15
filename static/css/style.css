@@ -3,7 +3,7 @@
 /* navbar */
 
 .nav-color {
-    background-color: #bf8787
+    background-color: #075022
 }
 
 /* background colors */
@@ -34,12 +34,32 @@
     font-weight: 700
 }
 
+.no-margin {
+    margin-bottom: 0;
+}
+
+.home-text {
+    font-size: 24px
+}
+
 
 /* headers */
 
 .page-header{
+    padding: 1em 0;
     margin-top: 0;
 }
+
+/* breaks */
+
+.spell-break {
+    width: 40px;
+    height: 3px;
+    border: 0;
+    border-radius: 1em;
+    background-color: #075022;
+}
+
 
 /* index */
 
