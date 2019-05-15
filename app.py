@@ -23,11 +23,15 @@ mongo = PyMongo(app)
 
 # Read 
 
-@app.route('/')
+@app.route('/')     
+@app.route('/index')
+def index ():
+    return render_template("index.html")
+
 @app.route('/browse_spells')
 def browse_spells():
     return render_template("view_spells.html", spells=mongo.db.spells.find())
-     
+
 # Create 
 
 @app.route('/add_spell')

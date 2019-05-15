@@ -6,16 +6,19 @@
     background-color: #bf8787
 }
 
-
 /* background colors */
 
 .bg-color {
-    background-color: #f9f4f7;
+    background-color: #F0EFF0;
     min-height: 100%;
     min-width: 1024px
 }
 
-/* fonts */
+/* fonts + text helpers */
+
+.center-text {
+    text-align: center;
+}
 
 .body-text{
     font-family: 'Dosis', sans-serif;
@@ -31,15 +34,30 @@
     font-weight: 700
 }
 
+
+/* headers */
+
+.page-header{
+    margin-top: 0;
+}
+
+/* index */
+
+.landing-image {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+}
+
 /* view spells */
 
 .spell-box {
     width: 350px;
     min-height: 475px;
     background: url(../img/spellcard_bg.png);
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
     padding: 10px 25px;
     -webkit-box-shadow: 3px 6px 13px -12px rgba(115,16,16,1);
     -moz-box-shadow: 3px 6px 13px -12px rgba(115,16,16,1);
