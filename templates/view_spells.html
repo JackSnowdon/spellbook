@@ -2,7 +2,7 @@
 
 <div class="row">
     {% for spell in spells %}
-    <div class="col s12 m4">
+    <div class="col s12 l6 xl4">
         <div class="card-panel spell-box hoverable">
 
             <div class="top-spell-box">
@@ -26,9 +26,15 @@
                 <div>
                     <span class="bold-text">Duration:</span> {{spell.duration}}
                 </div>
+                {% if spell.die_value == "0" %}
+                <div>
+                    <span class="bold-text">Die:</span> N/A
+                </div>
+                {% else %}
                 <div>
                     <span class="bold-text">Die:</span> {{spell.die_amount}}d{{spell.die_value}}
                 </div>
+                {% endif %}
             </div>
         </div>
         <div class="">

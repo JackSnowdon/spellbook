@@ -30,7 +30,8 @@ def index ():
 
 @app.route('/browse_spells')
 def browse_spells():
-    return render_template("view_spells.html", spells=mongo.db.spells.find())
+    return render_template("view_spells.html", spells=mongo.db.spells.find(),
+    components=mongo.db.components.find())
 
 # Create 
 

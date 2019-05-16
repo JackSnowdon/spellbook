@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Dosis:300,500,700');
+@import url('https://fonts.googleapis.com/css?family=Dosis:300,400, 500,700');
 
 /* navbar */
 
@@ -20,12 +20,12 @@
     text-align: center;
 }
 
-.body-text{
+.body-text {
     font-family: 'Dosis', sans-serif;
     color: #af9817
 }
 
-.input-text{
+.input-text {
     font-family: 'Dosis', sans-serif;
     color: #730101
 }
@@ -45,7 +45,7 @@
 
 /* headers */
 
-.page-header{
+.page-header {
     padding: 1em 0;
     margin-top: 0;
 }
@@ -64,24 +64,27 @@
 /* index */
 
 .landing-image {
-  width: 100%;
-  max-width: 700px;
-  height: auto;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
 }
 
 /* view spells */
 
+
 .spell-box {
     width: 350px;
     min-height: 475px;
+    max-width: 100%;
     background: url(../img/spellcard_bg.png);
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 10px 25px;
-    -webkit-box-shadow: 3px 6px 13px -12px rgba(115,16,16,1);
-    -moz-box-shadow: 3px 6px 13px -12px rgba(115,16,16,1);
-    box-shadow: 3px 6px 13px -12px rgba(115,16,16,1);
+    -webkit-box-shadow: 3px 6px 13px -12px rgba(115, 16, 16, 1);
+    -moz-box-shadow: 3px 6px 13px -12px rgba(115, 16, 16, 1);
+    box-shadow: 3px 6px 13px -12px rgba(115, 16, 16, 1);
+    text-transform: capitalize;
 }
 
 .top-spell-box {
@@ -91,11 +94,9 @@
     padding-right: 20px;
 }
 
-.middle-spell-box {
-    
-}
+.middle-spell-box {}
 
 .spell-name {
     font-size: 30px;
-    font-weight: 300;
+    font-weight: 400;
 }
