@@ -44,6 +44,7 @@ def add_spell():
 def insert_spell():
     spells = mongo.db.spells
     spells.insert_one(request.form.to_dict())
+    
     return redirect(url_for('browse_spells'))
     
 # Delete
