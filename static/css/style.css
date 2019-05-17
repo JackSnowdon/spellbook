@@ -102,8 +102,16 @@
 }
 
 .button-helper {
-    margin-bottom: 1em;
+    display: inline-block;
+    margin: 1em;
 }
 
 /* media quiries */
 
+@media (max-width: 996px) {
+
+    .spell-box {
+        min-width: 100%;
+    }
+
+}
