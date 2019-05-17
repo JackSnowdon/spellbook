@@ -76,6 +76,7 @@
     width: 350px;
     min-height: 475px;
     max-width: 100%;
+    margin-right: auto;
     background: url(../img/spellcard_bg.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -94,7 +95,8 @@
     padding-right: 20px;
 }
 
-.middle-spell-box {}
+.middle-spell-box {
+}
 
 .spell-name {
     font-size: 30px;
