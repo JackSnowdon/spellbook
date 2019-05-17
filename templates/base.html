@@ -13,21 +13,22 @@
 
 <body>
     <header>
-        <nav class="hide-on-med-and-down">
+        <nav>
             <div class="nav-wrapper body-text nav-color">
-                <a href="{{url_for('index')}}" class="brand-logo center">Spellfinder General</a>
-                <ul id="nav-mobile" class="left">
+                <a href="{{url_for('index')}}" class="brand-logo center">Spellfinder</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a href="{{url_for('add_spell')}}">Add Spell</a></li>
                     <li><a href="{{url_for('browse_spells')}}">View Spells</a></li>
                 </ul>
             </div>
         </nav>
-        <div class="nav-wrapper body-text nav-color show-on-small-and-down">
-            <ul id="slide-out" class="sidenav">
-                <li><a class="waves-effect" href="{{url_for('add_spell')}}">Add Spell</a></li>
-                <li><a class="waves-effect" href="{{url_for('browse_spells')}}">View Spells</a></li>
-            </ul>
-        </div>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a class="subheader">Spellfinder</a></li>
+            <li><div class="divider"></div></li>
+            <li><a href="{{url_for('add_spell')}}">Add Spell</a></li>
+            <li><a href="{{url_for('browse_spells')}}">View Spells</a></li>
+        </ul>
     </header>
     <div class="bg-color body-text">
         <div class="container col s12">
