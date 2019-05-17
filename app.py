@@ -33,7 +33,7 @@ def browse_spells():
     return render_template("view_spells.html", spells=mongo.db.spells.find(),
     components=mongo.db.components.find())
 
-# Create 
+# Create spells
 
 @app.route('/add_spell')
 def add_spell():
@@ -44,8 +44,15 @@ def add_spell():
 @app.route('/insert_spell', methods=['POST'])
 def insert_spell():
     spells = mongo.db.spells
-    spells.insert_one(request.form.to_dict())
-    
+    spells.insert_one({'spell_name':request.form.get('spell_name'),
+        'spell_level':request.form.get('spell_level'),
+        'school': request.form.get('school'),
+        'casting_time': request.form.get('casting_time'),
+        'range':request.form.get('range'),
+        'components':request.form.getlist('components'),
+        'duration':request.form.get('duration'),
+        'die_value':request.form.get('die_value'),
+        'die_amount':request.form.get('die_amount')})
     return redirect(url_for('browse_spells'))
     
 # Delete
@@ -64,8 +71,8 @@ def edit_spell(spell_id):
     components=mongo.db.components.find(), die=mongo.db.die.find(), level=mongo.db.level.find(),
     school=mongo.db.school.find())
 
-# 13/05/19 edit task all wired up, removed components from all forms while finding a way to make them work
-
+# components now able to add and edit as arrays to mongo db
+# edit fucntion not displaying selcted components 17/05/19
 
 @app.route('/update_spell/<spell_id>', methods=["POST"])
 def update_spell(spell_id):
@@ -77,7 +84,7 @@ def update_spell(spell_id):
         'school': request.form.get('school'),
         'casting_time': request.form.get('casting_time'),
         'range':request.form.get('range'),
-    #    'components':request.form.get('components'),
+        'components':request.form.getlist('components'),
         'duration':request.form.get('duration'),
         'die_value':request.form.get('die_value'),
         'die_amount':request.form.get('die_amount')

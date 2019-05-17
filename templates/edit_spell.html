@@ -41,29 +41,30 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
-                <input placeholder="Enter n/a is required" name="casting_time" id="casting_time" type="text" class="validate input-text" value="{{spell.casting_time}}">
+                <input placeholder="Leave blank if no value" name="casting_time" id="casting_time" type="text" class="validate input-text" value="{{spell.casting_time}}">
                 <label for="casting_time">Casting time</label>
             </div>
             <div class="input-field col s12 m6">
-                <input placeholder="Enter n/a if required" name="range" id="range" type="text" class="validate input-text" value="{{spell.range}}">
+                <input placeholder="Leave blank if no value" name="range" id="range" type="text" class="validate input-text" value="{{spell.range}}">
                 <label for="range">Range</label>
             </div>
         </div>
         <div class="row">
            <div class="input-field col s12 m6">
-            <!---    <select multiple id="components" name="components" class="input-text">
+            <select multiple id="components" name="components" class="input-text">
+                <!--- 17/05/19 selected components not showing up in list but now addable and displayable --->
                 {% for c in components %} 
-                    {% if c.components == spell.components %}
+                    {% if spell.components == c.component %}
                   <option value="{{c.component}}" selected>{{c.component}}</option>
                     {% else %}
                   <option value="{{c.component}}">{{c.component}}</option>
                     {% endif %}
                 {% endfor %} 
             </select> 
-                <label>Component - Choose your Components</label>--->
+                <label>Component - Choose your Components</label>
             </div>
             <div class="input-field col s12 m6">
-                <input placeholder="Enter n/a if required" name="duration" id="duration" type="text" class="validate input-text" value="{{spell.duration}}">
+                <input placeholder="Leave blank if no value" name="duration" id="duration" type="text" class="validate input-text" value="{{spell.duration}}">
                 <label for="duration">Duration</label>
             </div>
         </div>
@@ -81,7 +82,7 @@
                 <label>Die - Die Value </label>
             </div>
             <div class="input-field col s12 m6">
-                <input placeholder="Enter n/a if required" name="die_amount" id="die_amount" type="text" class="validate input-text" value="{{spell.die_amount}}">
+                <input placeholder="Leave blank if no value" name="die_amount" id="die_amount" type="text" class="validate input-text" value="{{spell.die_amount}}">
                 <label for="die_amount">Die amount</label>
             </div>
         </div>
