@@ -65,8 +65,9 @@
 
 .landing-image {
     width: 100%;
-    max-width: 700px;
     height: auto;
+    display: flex;
+    margin: 0;
 }
 
 /* view spells */
@@ -100,3 +101,12 @@
     font-size: 30px;
     font-weight: 400;
 }
+
+/* media quiries */
+
+@media (max-width: 991px) {
+    .spell-box  {
+        
+    }
+    }
+
