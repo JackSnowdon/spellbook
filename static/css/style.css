@@ -29,6 +29,10 @@
     color: #730101
 }
 
+.value-text {
+    color: #e0dbdb;
+}
+
 .bold-text {
     font-weight: 700
 }
@@ -41,6 +45,9 @@
     font-size: 24px
 }
 
+.underline {
+    text-decoration: underline;
+}
 
 /* headers */
 
@@ -71,7 +78,6 @@
 
 /* view spells */
 
-
 .spell-box {
     width: 350px;
     min-height: 475px;
@@ -89,18 +95,18 @@
 }
 
 .top-spell-box {
+    color: #D1A73E;
     text-align: center;
     padding-top: 30px;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-.middle-spell-box {
-}
+.middle-spell-box {}
 
 .spell-name {
     font-size: 30px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .button-helper {

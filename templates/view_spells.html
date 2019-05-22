@@ -7,31 +7,31 @@
             <div class="top-spell-box">
                 <div class="spell-name">{{spell.spell_name}}</div>
                 {% if spell.spell_level == "0" %}
-                <div>{{spell.school}} cantrip </div>
+                <div class="underline">{{spell.school}} cantrip</div>
                 {% else %}
-                <div>Level {{spell.spell_level}} {{spell.school}} </div>
+                <div class="underline">Level {{spell.spell_level}} {{spell.school}}</div>
                 {% endif %}
             </div>
             <div class="middle-spell-box">
                 <div>
-                    <span class="bold-text">Casting Time:</span> {{spell.casting_time}}
+                    <span class="bold-text">Casting Time:</span> <span class="value-text"> {{spell.casting_time}} </span>
                 </div>
                 <div>
-                    <span class="bold-text">Range:</span> {{spell.range}}
+                    <span class="bold-text">Range:</span> <span class="value-text"> {{spell.range}} </span>
                 </div>
                 <div>
-                    <span class="bold-text">Components:</span> {% for component in spell.components %} {{component}} {% endfor %}
+                    <span class="bold-text">Components:</span><span class="value-text"> {% for component in spell.components %} {{component}} {% endfor %} </span>
                 </div>
                 <div>
-                    <span class="bold-text">Duration:</span> {{spell.duration}}
+                    <span class="bold-text">Duration:</span><span class="value-text"> {{spell.duration}} </span>
                 </div>
                 {% if spell.die_value == "0" %}
                 <div>
-                    <span class="bold-text">Die:</span> N/A
+                    <span class="bold-text">Die:</span><span class="value-text"> N/A </span>
                 </div>
                 {% else %}
                 <div>
-                    <span class="bold-text">Die:</span> {{spell.die_amount}}d{{spell.die_value}}
+                    <span class="bold-text">Die:</span><span class="value-text"> {{spell.die_amount}}d{{spell.die_value}} </span>
                 </div>
                 {% endif %}
             </div>
