@@ -1,0 +1,79 @@
+{% extends 'base.html'%} {% block content %}
+<h2 class="input-text page-header">Search Spells</h2>
+<div class="row">
+    <form action="" method="POST" class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Spell Name" name="spell_name" id="spell_name" type="text" class="validate input-text">
+                <label for="spell_name">Spell Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <select class="input-text" id="spell_level" name="spell_level">
+                {% for l in level %} 
+                  <option value="{{l.spell_level}}">{{l.spell_level}}</option>
+                {% endfor %}
+            </select>
+                <label>Spell Level - Choose your spell level</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <select class="input-text" id="school" name="school">
+                {% for s in school %} 
+                  <option  value="{{s.school_name}}">{{s.school_name}}</option>
+                {% endfor %}
+            </select>
+                <label>Spell School - Choose your spell school</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <input placeholder="Leave blank if no value" name="casting_time" id="casting_time" type="text" class="validate input-text">
+                <label for="casting_time">Casting time</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <input placeholder="Leave blank if no value" name="range" id="range" type="text" class="validate input-text">
+                <label for="range">Range</label>
+            </div>
+        </div>
+      <div class="row">
+            <div class="input-field col s12 m6">
+           <select multiple id="components" name="components" class="input-text">
+                {% for c in components %} 
+                  <option value="{{c.component}}">{{c.component}}</option>
+                {% endfor %}
+            </select>
+                <label>Component - Choose your Components</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <input placeholder="Leave blank if no value" name="duration" id="duration" type="text" class="validate input-text">
+                <label for="duration">Duration</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <select id="die_value" name="die_value" class="validate input-text" type="text">
+                {% for d in die %} 
+                  <option value="{{d.die_value}}">{{d.die_value}}</option>
+                {% endfor %}
+            </select>
+                <label>Die - Die Value </label>
+            </div>
+            <div class="input-field col s12 m6">
+                <input placeholder="Leave blank if no value" name="die_amount" id="die_amount" type="text" class="validate input-text">
+                <label for="die_amount">Die amount</label>
+            </div>
+        </div>
+        <div class="row">
+            <a href="{{url_for('browse_spells')}}" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">arrow_back</i></a>
+             <button class="btn-floating btn-large waves-effect waves-light blue" type="submit">
+                <i class="material-icons right">search</i>
+              </button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+
+
+<!--- {{ url_for('search_request') }} --->

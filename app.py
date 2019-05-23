@@ -92,6 +92,17 @@ def update_spell(spell_id):
     return redirect(url_for('browse_spells'))
     
     
+# Search
+
+@app.route('/search_spells')
+def search_spells ():
+    return render_template("search_spells.html", components=mongo.db.components.find(), 
+    spells=mongo.db.spells.find(), die=mongo.db.die.find(),
+    level=mongo.db.level.find(), school=mongo.db.school.find())
+    
+#@app.route('/search_request')
+#def search_request():
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')))
