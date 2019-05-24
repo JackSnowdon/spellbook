@@ -54,7 +54,7 @@
             <select multiple id="components" name="components" class="input-text">
                 <!--- 17/05/19 selected components not showing up in list but now addable and displayable --->
                 {% for c in components %} 
-                    {% if spell.components == c.component %}
+                    {% if c.component == spell.components %}
                   <option value="{{c.component}}" selected>{{c.component}}</option>
                     {% else %}
                   <option value="{{c.component}}">{{c.component}}</option>

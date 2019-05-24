@@ -95,14 +95,23 @@ def update_spell(spell_id):
 # Search
 
 @app.route('/search_spells')
-def search_spells ():
+def search_spells():
     return render_template("search_spells.html", components=mongo.db.components.find(), 
     spells=mongo.db.spells.find(), die=mongo.db.die.find(),
     level=mongo.db.level.find(), school=mongo.db.school.find())
+
+# 23/05/19 search function landing on a "if no direction is specified, key_or_list must be an instance of list" message 
     
-#@app.route('/search_request')
-#def search_request():
-    
+@app.route('/search_request', methods=['POST', 'GET'])
+def search_request():
+    spells=mongo.db.spells
+    spells.create_index({'spell_name':"text"})
+    search_name=request.form.get('spell_name')
+    print(search_name)
+    results=spells.find({"$text":{"$search":search_name}})
+    print(results)
+    return render_template('searched_spells.html', results=results, spells=spells.find())
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')))
