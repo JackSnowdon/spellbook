@@ -110,8 +110,13 @@
 }
 
 .button-helper {
-    display: inline-block;
     margin: 1em;
+}
+
+/* Modals */
+
+.modal-body {
+    font-size: 1.4em;
 }
 
 /* media quiries */
