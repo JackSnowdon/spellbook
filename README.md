@@ -31,13 +31,12 @@ For handling the data, I chose MongoDB as the database, due to its non relationa
 
 Spellfinder
 * Allow users to search for spells filtering and ordering using key queries
+* Allow users to add, edit and delete spells.
 
-Spell List
-* Allow players to view, add, edit and delete spells from their own player spell lists
+Navbar 
+* Easy to use navbar on both full screen and collapseable on smaller screens
 
-Register/Login
-* Log in to view personalised character  spell lists
-* While logged into characters can add their own homebrew spells
+
 
 ### Features left to implement 
 
@@ -47,3 +46,30 @@ Using Spells
 Spell slots
 * Players have a certain amount of spell slots, which act as MP (Magic points)
 * A new feature would be to include this within Spellfinder General
+
+Spell List
+* Allow players to view, add, edit and delete spells from their own player spell lists
+
+Register/Login
+* Log in to view personalised character  spell lists
+* While logged into characters can add their own homebrew spells
+## Testing 
+
+- HTML5/CSS3
+  - The project uses HTML5/CSS3 To build and style.
+- [Flask](http://flask.pocoo.org/)
+  - The project uses flask and its addons for templating and logic
+- [MongoDB](https://www.mongodb.com/)
+  - Used MongoDB for the database which holds the user and recipe information
+- [Materialize v1](https://materializecss.com/)
+  - The project uses Materialize for styling, helpers and the grid system
+- [Material Icons](https://material.io/tools/icons/?style=baseline)
+  - Material Icons used for the various icons used throughout the site
+- [Google fonts](https://fonts.google.com/)
+  - The project uses Google fonts for fonts
+- [JQuery](https://jquery.com)
+  - The project uses **JQuery** to simplify DOM manipulation.
+- [PyMongo](https://api.mongodb.com/python/current/)
+  - The project uses PyMongo as the link between my project and MongoDB
+- [Flask_PyMongo](https://flask-pymongo.readthedocs.io/en/latest/)
+  - Flask-PyMongo bridges Flask and PyMongo and provides some convenience helpers.

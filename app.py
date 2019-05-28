@@ -64,15 +64,17 @@ def delete_spell(spell_id):
     
 # Update
 
+# 28/05 Passing the spell to be edited components array in as its own var
+# that array needs to be compared to the components array with selected ones showing up
+
 @app.route('/edit_spell/<spell_id>')
 def edit_spell(spell_id):
     the_spell = mongo.db.spells.find_one({"_id": ObjectId(spell_id)})
+    component = the_spell['components']
+    print(component)
     return render_template('edit_spell.html', spell=the_spell, 
     components=mongo.db.components.find(), die=mongo.db.die.find(), level=mongo.db.level.find(),
-    school=mongo.db.school.find())
-
-# components now able to add and edit as arrays to mongo db
-# edit fucntion not displaying selcted components 17/05/19
+    school=mongo.db.school.find(), component=component)
 
 @app.route('/update_spell/<spell_id>', methods=["POST"])
 def update_spell(spell_id):
@@ -93,12 +95,6 @@ def update_spell(spell_id):
     
     
 # Search
-
-@app.route('/search_spells')
-def search_spells():
-    return render_template("search_spells.html", components=mongo.db.components.find(), 
-    spells=mongo.db.spells.find(), die=mongo.db.die.find(),
-    level=mongo.db.level.find(), school=mongo.db.school.find())
 
 # 23/05/19 search function landing on a "if no direction is specified, key_or_list must be an instance of list" message 
     

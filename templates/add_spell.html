@@ -5,7 +5,7 @@
         <div class="row">
             <div class="input-field col s6">
                 <input placeholder="Spell Name" name="spell_name" id="spell_name" type="text" class="validate input-text" required>
-                <label for="spell_name">Spell Name</label>
+                <label for="spell_name">Spell Name - Required</label>
             </div>
         </div>
         <div class="row">
@@ -15,7 +15,7 @@
                   <option value="{{l.spell_level}}">{{l.spell_level}}</option>
                 {% endfor %}
             </select>
-                <label>Spell Level - Choose your spell level</label>
+                <label>Spell Level - Choose your spell level - Required</label>
             </div>
             <div class="input-field col s12 m6">
                 <select class="input-text" id="school" name="school" required>
@@ -23,7 +23,7 @@
                   <option  value="{{s.school_name}}">{{s.school_name}}</option>
                 {% endfor %}
             </select>
-                <label>Spell School - Choose your spell school</label>
+                <label>Spell School - Choose your spell school - Required</label>
             </div>
         </div>
         <div class="row">
@@ -57,7 +57,7 @@
                   <option value="{{d.die_value}}">{{d.die_value}}</option>
                 {% endfor %}
             </select>
-                <label>Die - Select "0" if no die roll needed </label>
+                <label>Die - Leave as "0" if no die roll needed </label>
             </div>
             <div class="input-field col s12 m6">
                 <input placeholder="Leave blank if no value" name="die_amount" id="die_amount" type="text" class="validate input-text">

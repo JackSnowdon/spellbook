@@ -10,7 +10,7 @@
         <div class="row">
             <div class="input-field col s6">
                 <input name="spell_name" id="spell_name" type="text" class="validate input-text" value="{{spell.spell_name}}" required>
-                <label for="spell_name">Spell Name</label>
+                <label for="spell_name">Spell Name - Required</label>
             </div>
         </div>
         <div class="row">
@@ -24,7 +24,7 @@
                     {% endif %}  
                 {% endfor %}
             </select>
-                <label>Spell Level - Choose your spell level</label>
+                <label>Spell Level - Choose your spell level - Required</label>
             </div>
             <div class="input-field col s12 m6">
                 <select class="input-text" id="school" name="school" required>
@@ -36,7 +36,7 @@
                     {% endif %}
                 {% endfor %}
             </select>
-                <label>Spell School - Choose your spell school</label>
+                <label>Spell School - Choose your spell school - Required</label>
             </div>
         </div>
         <div class="row">
@@ -52,13 +52,14 @@
         <div class="row">
            <div class="input-field col s12 m6">
             <select multiple id="components" name="components" class="input-text">
-                <!--- 17/05/19 selected components not showing up in list but now addable and displayable --->
-                {% for c in components %} 
-                    {% if c.component == spell.components %}
+               <!-- 28/05 Passing the spell to be edited components array in as its own var (component)
+                that array needs to be compared to the components array with selected ones showing up -->
+                 {% for c in components %} 
+                     {% if component == c.component %} 
                   <option value="{{c.component}}" selected>{{c.component}}</option>
                     {% else %}
                   <option value="{{c.component}}">{{c.component}}</option>
-                    {% endif %}
+                  {% endif %}
                 {% endfor %} 
             </select> 
                 <label>Component - Choose your Components</label>
@@ -79,7 +80,7 @@
                     {% endif %}
                 {% endfor %}
             </select>
-                <label>Die - Select "0" if no die roll needed </label>
+                <label>Die - Leave as "0" if no die roll needed </label>
             </div>
             <div class="input-field col s12 m6">
                 <input placeholder="Leave blank if no value" name="die_amount" id="die_amount" type="text" class="validate input-text" value="{{spell.die_amount}}">
