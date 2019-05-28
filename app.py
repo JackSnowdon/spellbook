@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for
-from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
@@ -105,14 +105,20 @@ def search_spells():
 @app.route('/search_request', methods=['POST', 'GET'])
 def search_request():
     spells=mongo.db.spells
-    spells.create_index({'spell_name':"text"})
-    search_name=request.form.get('spell_name')
+    search_name=str(request.form.get('spell_name'))
     print(search_name)
-    results=spells.find({"$text":{"$search":search_name}})
-    print(results)
-    return render_template('searched_spells.html', results=results, spells=spells.find())
+    results = spells.find({"spell_name": "search_name"})
+    return render_template('searched_spells.html', results=results, spells=spells)
+    
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')))
-        
+
+#spells=mongo.db.spells
+#    spells.create_index([{"$**":"text"}])
+#    search_name=request.form.get('spell_name')
+#    print(search_name)
+#    results=spells.find({"$text":{"$search":search_name}})
+#    print(results)
+#    return render_template('searched_spells.html', results=results, spells=spells.find())

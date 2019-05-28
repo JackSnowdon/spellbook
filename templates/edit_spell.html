@@ -9,13 +9,13 @@
     <form action="{{url_for('update_spell', spell_id=spell._id) }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
-                <input name="spell_name" id="spell_name" type="text" class="validate input-text" value="{{spell.spell_name}}">
+                <input name="spell_name" id="spell_name" type="text" class="validate input-text" value="{{spell.spell_name}}" required>
                 <label for="spell_name">Spell Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
-                <select class="input-text" id="spell_level" name="spell_level">
+                <select class="input-text" id="spell_level" name="spell_level" required>
                 {% for l in level %}
                     {% if l.spell_level == spell.spell_level %}
                   <option value="{{l.spell_level}}" selected>{{l.spell_level}}</option>
@@ -27,7 +27,7 @@
                 <label>Spell Level - Choose your spell level</label>
             </div>
             <div class="input-field col s12 m6">
-                <select class="input-text" id="school" name="school">
+                <select class="input-text" id="school" name="school" required>
                 {% for s in school %} 
                     {% if s.school_name == spell.school %}
                   <option  value="{{s.school_name}}" selected>{{s.school_name}}</option>
@@ -79,7 +79,7 @@
                     {% endif %}
                 {% endfor %}
             </select>
-                <label>Die - Die Value </label>
+                <label>Die - Select "0" if no die roll needed </label>
             </div>
             <div class="input-field col s12 m6">
                 <input placeholder="Leave blank if no value" name="die_amount" id="die_amount" type="text" class="validate input-text" value="{{spell.die_amount}}">
