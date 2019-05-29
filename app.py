@@ -101,14 +101,13 @@ def update_spell(spell_id):
     
 # Search
 
-# 23/05/19 search function landing on a "if no direction is specified, key_or_list must be an instance of list" message 
+# 29/05/19 basic accesdeing spell search below. works on c9 but crashes on heroku. 
     
-@app.route('/search_request', methods=['POST'])
-def search_request():
+@app.route('/search_levels', methods=['POST'])
+def search_levels():
     spells=mongo.db.spells
-    search_name=str(request.form.get('spell_name'))
-    print(search_name)
-    results = spells.find({"spell_name": "search_name"})
+    results=list(spells.find().sort("spell_level", 1))
+    print(results)
     return render_template('searched_spells.html', results=results, spells=spells)
     
 
