@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, session, request, url_for
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 
@@ -10,10 +10,12 @@ app = Flask(__name__)
 if os.environ.get('C9_HOSTNAME'):
     import config
     app.config['DEBUG'] = True
+    app.config['SECRET_KEY'] = config.SECRET_KEY
     app.config['MONGO_URI'] = config.MONGO_URI
     app.config['DB_NAME'] = config.DB_NAME
 else:
     app.config['DEBUG'] = False
+    app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
     app.config["MONGO_URI"] = os.getenv("MONGO_URI")
     app.config["DB_NAME"] = os.getenv("DB_NAME")
     
@@ -106,6 +108,28 @@ def search_request():
     results = spells.find({"spell_name": "search_name"})
     return render_template('searched_spells.html', results=results, spells=spells)
     
+
+# Login/Register 
+
+@app.route('/register')
+def register():
+    return render_template("register.html")
+
+@app.route('/register_request', methods=['POST', 'GET'])
+def register_request():
+    if request.method == 'POST':
+        users = mongo.db.users
+        existing_user = users.find_one({'username':request.form['user_name']})
+        
+        if existing_user is None:
+            users.insert({'username':request.form['user_name']})
+            session['user_name'] = request.form['user_name']
+            return redirect(url_for('index'))
+            
+        return 'That username has already been choosen!'
+    
+    return render_template('register.html')        
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
