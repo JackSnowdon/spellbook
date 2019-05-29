@@ -11,8 +11,8 @@
         <p class="spell-name center-text">Use the buttons below to order spells via selected attribute<br>Or keep scrolling to view all spells!</p>
     </div>
     <div class="col s12 m3">
-        <form action="" method="POST">
-            <button class="waves-effect waves-light btn-large nav-color" type="submit" name="action">Level
+        <form action="{{ url_for('search_levels') }}" method="POST">
+            <button class="waves-effect waves-light btn-large nav-color" type="submit" name="level" id="level">Level
                 <i class="material-icons right">arrow_forward_ios</i>
             </button>
         </form>
@@ -20,7 +20,7 @@
     </div>
     <div class="col s12 m3">
         <form action="" method="POST">
-            <button class="waves-effect waves-light btn-large nav-color" type="submit" name="action">School
+            <button class="waves-effect waves-light btn-large nav-color" type="submit" name="school" id="school">School
                 <i class="material-icons right">arrow_forward_ios</i>
             </button>
         </form>
