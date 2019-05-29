@@ -1,6 +1,12 @@
 {% extends 'base.html'%} {% block content %}
-
+{% if error %}
+<br>
+    <div class="col s6">
+        <p class="alert-message"><strong>Error:</strong> {{ error }} 
+    </div>
+    {% endif %}
 <div class="row">
+    
     {% for spell in spells %}
     <div class="col s12 l6 xl4">
         <div class="card-panel spell-box hoverable responsive-img">

@@ -61,10 +61,15 @@ def insert_spell():
 
 @app.route('/delete_spell/<spell_id>')
 def delete_spell(spell_id):
+    error = None
     if 'username' in session:
         mongo.db.spells.remove({'_id': ObjectId(spell_id)})
         return redirect(url_for('browse_spells'))
-    return "You must be logged in to delete spells"
+    
+    else:
+        error = "You must be logged in to delete spells"
+        return render_template('view_spells.html', error = error, 
+        spells=mongo.db.spells.find(), components=mongo.db.components.find())
     
 # Update
 
