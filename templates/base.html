@@ -35,6 +35,10 @@
         </nav>
         <ul class="sidenav" id="mobile-demo">
             <li><a class="subheader">Spellfinder</a></li>
+            {% if 'username' in session %}
+            <li><a class="subheader">You are logged in as <span class="capitalize">{{session['username']}}</span></a></li>
+            {% else %} 
+            {% endif %}
             <li>
                 <div class="divider"></div>
             </li>
@@ -42,6 +46,10 @@
             <li><a href="{{url_for('browse_spells')}}">View All Spells</a></li>
             <li><a href="{{url_for('register')}}">Register</a></li>
             <li><a href="{{url_for('login')}}">Login</a></li>
+            {% if 'username' in session %}
+            <li><a href="{{url_for('logout')}}">Logout</a></li>
+            {% else %} 
+            {% endif %}
         </ul>
     </header>
     <div class="bg-color body-text">
