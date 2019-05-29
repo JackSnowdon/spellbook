@@ -103,7 +103,7 @@ def update_spell(spell_id):
 
 # 23/05/19 search function landing on a "if no direction is specified, key_or_list must be an instance of list" message 
     
-@app.route('/search_request', methods=['POST', 'GET'])
+@app.route('/search_request', methods=['POST'])
 def search_request():
     spells=mongo.db.spells
     search_name=str(request.form.get('spell_name'))

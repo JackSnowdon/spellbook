@@ -5,6 +5,40 @@
         <p class="alert-message"><strong>Error:</strong> {{ error }} 
     </div>
     {% endif %}
+    
+<div class="row search-buttons">
+    <div class="col s12">
+        <p class="spell-name center-text">Use the buttons below to order spells via selected attribute </p>
+    </div>
+    <div class="col s3">
+        <form action="" method="POST">
+            <button class="waves-effect waves-light btn-large nav-color" type="submit" name="action">Level
+                <i class="material-icons right">arrow_forward_ios</i>
+            </button>
+        </form>
+    </div>
+    <div class="col s3">
+        <form action="" method="POST">
+            <button class="waves-effect waves-light btn-large nav-color" type="submit" name="action">School
+                <i class="material-icons right">arrow_forward_ios</i>
+            </button>
+        </form>
+    </div>
+    <div class="col s3">
+        <form action="" method="POST">
+            <button class="waves-effect waves-light btn-large nav-color" type="submit" name="action">Casting Time
+                <i class="material-icons right">arrow_forward_ios</i>
+            </button>
+        </form>
+    </div>
+    <div class="col s3">
+        <form action="" method="POST">
+            <button class="waves-effect waves-light btn-large nav-color" type="submit" name="action">Components
+                <i class="material-icons right">arrow_forward_ios</i>
+            </button>
+        </form>
+    </div>
+</div>
 <div class="row">
     
     {% for spell in spells %}

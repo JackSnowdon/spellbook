@@ -120,7 +120,15 @@
 }
 
 .button-helper {
+    text-align: center;
     margin: 1em;
+}
+
+/* Search */
+
+.search-buttons {
+    text-align: center;
+    padding-top: 1em;
 }
 
 /* Modals */
