@@ -128,8 +128,28 @@ def register_request():
             
         return 'That username has already been choosen!'
     
-    return render_template('register.html')        
+    return render_template('register.html')
+    
+@app.route('/login')
+def login():
+    return render_template("login.html")
+    
+@app.route('/login_request', methods=['POST'])
+def login_request():
+    users = mongo.db.users
+    login_user = users.find_one({'username':request.form['user_name']})
+    
+    if login_user:
+        session['username'] = request.form['user_name']
+        return redirect(url_for('index'))
+        
+    return 'That username does not exist'
 
+@app.route('/logout')
+def logout():
+   # remove the username from the session if it is there
+   session.pop('username', None)
+   return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

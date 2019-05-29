@@ -49,18 +49,19 @@
                 <label for="range">Range</label>
             </div>
         </div>
+        
         <div class="row">
            <div class="input-field col s12 m6">
             <select multiple id="components" name="components" class="input-text">
                <!-- 28/05 Passing the spell to be edited components array in as its own var (component)
                 that array needs to be compared to the components array with selected ones showing up -->
-                 {% for c in components %} 
-                     {% if component == c.component %} 
-                  <option value="{{c.component}}" selected>{{c.component}}</option>
+                {% for c in components %}
+                    {% if c.component in component %}
+                        <option value="{{c.component}}" selected>{{c.component}}</option>
                     {% else %}
-                  <option value="{{c.component}}">{{c.component}}</option>
-                  {% endif %}
-                {% endfor %} 
+                        <option value="{{c.component}}">{{c.component}}</option>
+                    {% endif %}
+                {% endfor %}
             </select> 
                 <label>Component - Choose your Components</label>
             </div>
