@@ -25,9 +25,9 @@
                 </ul>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     {% if 'username' in session %}
-                    <li>You are logged in as {{session['username']}}</li>
+                    <li>You are logged in as <span class="capitalize">{{session['username']}}</span></li>
                     <li><a href="{{url_for('logout')}}">Logout</a></li>
-                    {% else %}
+                    {% else %} 
                     {% endif %}
                 </ul>
 

@@ -61,19 +61,17 @@ def insert_spell():
 
 @app.route('/delete_spell/<spell_id>')
 def delete_spell(spell_id):
-    mongo.db.spells.remove({'_id': ObjectId(spell_id)})
-    return redirect(url_for('browse_spells'))    
+    if 'username' in session:
+        mongo.db.spells.remove({'_id': ObjectId(spell_id)})
+        return redirect(url_for('browse_spells'))
+    return "You must be logged in to delete spells"
     
 # Update
-
-# 28/05 Passing the spell to be edited components array in as its own var
-# that array needs to be compared to the components array with selected ones showing up
 
 @app.route('/edit_spell/<spell_id>')
 def edit_spell(spell_id):
     the_spell = mongo.db.spells.find_one({"_id": ObjectId(spell_id)})
     component = the_spell['components']
-    print(component)
     return render_template('edit_spell.html', spell=the_spell, 
     components=mongo.db.components.find(), die=mongo.db.die.find(), level=mongo.db.level.find(),
     school=mongo.db.school.find(), component=component)
@@ -119,10 +117,10 @@ def register():
 def register_request():
     if request.method == 'POST':
         users = mongo.db.users
-        existing_user = users.find_one({'username':request.form['user_name']})
+        existing_user = users.find_one({'username':request.form['user_name'].lower()})
         
         if existing_user is None:
-            users.insert({'username':request.form['user_name']})
+            users.insert({'username':request.form['user_name'].lower()})
             session['user_name'] = request.form['user_name']
             return redirect(url_for('index'))
             
@@ -137,8 +135,7 @@ def login():
 @app.route('/login_request', methods=['POST'])
 def login_request():
     users = mongo.db.users
-    login_user = users.find_one({'username':request.form['user_name']})
-    
+    login_user = users.find_one({'username':request.form['user_name'].lower()})
     if login_user:
         session['username'] = request.form['user_name']
         return redirect(url_for('index'))
