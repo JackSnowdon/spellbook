@@ -4,6 +4,11 @@
     <div class="row">
         <div class="col s12">
             <h1 class="no-margin">Spellfinder General</h1>
+            {% if success %}
+            <div>
+                <p class="alert-message underline">{{ success }}
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>

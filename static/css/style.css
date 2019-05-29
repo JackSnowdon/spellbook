@@ -53,11 +53,17 @@
     text-transform: capitalize;
 }
 
+.alert-message {
+    font-size: 1.2em;
+    color: #730101;
+}
+
 /* headers */
 
 .page-header {
     padding: 1em 0;
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* breaks */

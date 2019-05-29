@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, session, request, url_for
+from flask import Flask, render_template, redirect, session, request, url_for, flash
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 
@@ -115,18 +115,20 @@ def register():
 
 @app.route('/register_request', methods=['POST', 'GET'])
 def register_request():
+    success = None
+    error = None
     if request.method == 'POST':
         users = mongo.db.users
         existing_user = users.find_one({'username':request.form['user_name'].lower()})
-        
         if existing_user is None:
             users.insert({'username':request.form['user_name'].lower()})
-            session['user_name'] = request.form['user_name']
-            return redirect(url_for('index'))
-            
-        return 'That username has already been choosen!'
+            session['username'] = request.form['user_name']
+            success = 'You were successfully logged in'
+            return render_template('index.html', success = success)
+        else:
+            error = 'That username has already been taken'
     
-    return render_template('register.html')
+    return render_template('register.html', error = error)
     
 @app.route('/login')
 def login():
@@ -134,19 +136,27 @@ def login():
     
 @app.route('/login_request', methods=['POST'])
 def login_request():
+    success = None
+    error = None
     users = mongo.db.users
     login_user = users.find_one({'username':request.form['user_name'].lower()})
     if login_user:
         session['username'] = request.form['user_name']
-        return redirect(url_for('index'))
+        success = 'You were successfully logged in'
+        return render_template('index.html', success = success)
         
-    return 'That username does not exist'
+    else:
+        error = 'That username does not exist'
+    
+    return render_template('login.html', error = error)
 
 @app.route('/logout')
 def logout():
    # remove the username from the session if it is there
+   success = None
    session.pop('username', None)
-   return redirect(url_for('index'))
+   success = 'You have successfully logged out'
+   return render_template('index.html', success = success)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
