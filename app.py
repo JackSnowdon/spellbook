@@ -168,6 +168,7 @@ def login_request():
     users = mongo.db.users
     login_user = users.find_one({'username':request.form['user_name'].lower()})
     if login_user:
+        session.pop('username', None)
         session['username'] = request.form['user_name']
         success = 'You were successfully logged in'
         return render_template('index.html', success = success)
