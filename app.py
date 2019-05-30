@@ -188,11 +188,3 @@ def logout():
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')))
-
-#spells=mongo.db.spells
-#    spells.create_index([{"$**":"text"}])
-#    search_name=request.form.get('spell_name')
-#    print(search_name)
-#    results=spells.find({"$text":{"$search":search_name}})
-#    print(results)
-#    return render_template('searched_spells.html', results=results, spells=spells.find())
