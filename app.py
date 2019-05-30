@@ -102,36 +102,32 @@ def update_spell(spell_id):
 
 # 29/05/19 basic accesdeing spell search below. 
     
-@app.route('/search_levels', methods=['POST'])
+@app.route('/search_levels')
 def search_levels():
     spells=mongo.db.spells
     results=list(spells.find().sort("spell_level", 1))
-    print(results)
     return render_template('searched_spells.html', 
             results=results, spells=spells)
     
-@app.route('/search_schools', methods=['POST'])
+@app.route('/search_schools', methods=['GET'])
 def search_schools():
     spells=mongo.db.spells
     results=list(spells.find().sort("school", 1))
-    print(results)
     return render_template('searched_spells.html', 
             results=results, spells=spells)
 
 
-@app.route('/search_casting', methods=['POST'])
+@app.route('/search_casting', methods=['GET'])
 def search_casting():
     spells=mongo.db.spells
     results=list(spells.find().sort("casting_time", 1))
-    print(results)
     return render_template('searched_spells.html', 
             results=results, spells=spells)
             
-@app.route('/search_duration', methods=['POST'])
+@app.route('/search_duration', methods=['GET'])
 def search_duration():
     spells=mongo.db.spells
     results=list(spells.find().sort("duration", 1))
-    print(results)
     return render_template('searched_spells.html', 
             results=results, spells=spells)
 
