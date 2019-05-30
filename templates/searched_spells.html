@@ -1,9 +1,13 @@
 {% extends 'base.html'%} {% block content %}
-<div class="row page-header search-buttons">
+<div class="row page-header">
     <div class="col s12">
-        <p class="spell-name center-text no-margin">Use the buttons below to order spells alphabetically by key<br>Or click the button below to go back to all spells!</p>
-        <a href="{{url_for('browse_spells')}}" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">arrow_back</i></a>
+        <p class="spell-name center-text no-margin">Spells ordered by {{search_term}}<br>Use the buttons below to order spells alphabetically by key<br>Or click the button below to go back to all spells!</p>
+
     </div>
+</div>
+<div class="row search-buttons">
+    <a href="{{url_for('browse_spells')}}" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">arrow_back</i></a>
+    <div class="row search-back">
         <div class="col s12 m3">
             <a href="{{ url_for('search_levels') }}" class="waves-effect waves-light btn-large nav-color" type="submit" name="level" id="level">Level
                 <i class="material-icons right">arrow_forward_ios</i>
@@ -28,6 +32,7 @@
         </a>
             <hr class="spell-break hide-on-med-and-up">
         </div>
+    </div>
 </div>
 <div class="row">
     {% for spell in results %}

@@ -13,25 +13,28 @@
 
 <body>
     <header>
-        <nav>
-            <div class="nav-wrapper body-text nav-color">
-                <a href="{{url_for('index')}}" class="brand-logo center">Spellfinder</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="{{url_for('add_spell')}}">Add Spell</a></li>
-                    <li><a href="{{url_for('browse_spells')}}">View All Spells</a></li>
-                    <li><a href="{{url_for('register')}}">Register</a></li>
-                    <li><a href="{{url_for('login')}}">Login</a></li>
-                </ul>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    {% if 'username' in session %}
-                    <li>You are logged in as <span class="capitalize">{{session['username']}}</span></li>
-                    <li><a href="{{url_for('logout')}}">Logout</a></li>
-                    {% else %} {% endif %}
-                </ul>
+        <div class="navbar-fixed">
+            <nav>
 
-            </div>
-        </nav>
+                <div class="nav-wrapper body-text nav-color">
+                    <a href="{{url_for('index')}}" class="brand-logo center">Spellfinder</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="left hide-on-med-and-down">
+                        <li><a href="{{url_for('add_spell')}}">Add Spell</a></li>
+                        <li><a href="{{url_for('browse_spells')}}">View All Spells</a></li>
+                        <li><a href="{{url_for('register')}}">Register</a></li>
+                        <li><a href="{{url_for('login')}}">Login</a></li>
+                    </ul>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        {% if 'username' in session %}
+                        <li>You are logged in as <span class="capitalize">{{session['username']}}</span></li>
+                        <li><a href="{{url_for('logout')}}">Logout</a></li>
+                        {% else %} {% endif %}
+                    </ul>
+
+                </div>
+            </nav>
+        </div>
         <ul class="sidenav" id="mobile-demo">
             <li><a class="subheader">Spellfinder</a></li>
             {% if 'username' in session %}

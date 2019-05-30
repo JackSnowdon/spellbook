@@ -107,31 +107,35 @@ def update_spell(spell_id):
 @app.route('/search_levels')
 def search_levels():
     spells=mongo.db.spells
+    search_term="Spell Level"
     results=list(spells.find().sort("spell_level", 1))
     return render_template('searched_spells.html', 
-            results=results, spells=spells)
+            results=results, spells=spells, search_term=search_term)
     
 @app.route('/search_schools', methods=['GET'])
 def search_schools():
     spells=mongo.db.spells
+    search_term="School"
     results=list(spells.find().sort("school", 1))
     return render_template('searched_spells.html', 
-            results=results, spells=spells)
+            results=results, spells=spells, search_term=search_term)
 
 
 @app.route('/search_casting', methods=['GET'])
 def search_casting():
     spells=mongo.db.spells
+    search_term="Casting Time"
     results=list(spells.find().sort("casting_time", 1))
     return render_template('searched_spells.html', 
-            results=results, spells=spells)
+            results=results, spells=spells, search_term=search_term)
             
 @app.route('/search_duration', methods=['GET'])
 def search_duration():
     spells=mongo.db.spells
+    search_term="Duration"
     results=list(spells.find().sort("duration", 1))
     return render_template('searched_spells.html', 
-            results=results, spells=spells)
+            results=results, spells=spells, search_term=search_term)
 
 
 # Login/Register 
