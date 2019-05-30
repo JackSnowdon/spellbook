@@ -5,7 +5,7 @@
         <div class="row">
             <div class="input-field col s6">
                 <input placeholder="Spell Name" name="spell_name" id="spell_name" type="text" class="validate input-text" required>
-                <label for="spell_name">Spell Name - Required</label>
+                <label for="spell_name"><span class="label-helper">Spell Name - Required</span></label>
             </div>
         </div>
         <div class="row">
@@ -15,7 +15,7 @@
                   <option value="{{l.spell_level}}">{{l.spell_level}}</option>
                 {% endfor %}
             </select>
-                <label>Spell Level - Choose your spell level - Required</label>
+                <label><span class="label-helper">Spell Level - Choose your spell level - Required</span></label>
             </div>
             <div class="input-field col s12 m6">
                 <select class="input-text" id="school" name="school" required>
@@ -23,50 +23,50 @@
                   <option  value="{{s.school_name}}">{{s.school_name}}</option>
                 {% endfor %}
             </select>
-                <label>Spell School - Choose your spell school - Required</label>
+                <label><span class="label-helper">Spell School - Choose your spell school - Required</span></label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
                 <input placeholder="Leave blank if no value" name="casting_time" id="casting_time" type="text" class="validate input-text">
-                <label for="casting_time">Casting time</label>
+                <label for="casting_time"><span class="label-helper">Casting time</span></label>
             </div>
             <div class="input-field col s12 m6">
                 <input placeholder="Leave blank if no value" name="range" id="range" type="text" class="validate input-text">
-                <label for="range">Range</label>
+                <label for="range"><span class="label-helper">Range</span></label>
             </div>
         </div>
-      <div class="row">
+        <div class="row">
             <div class="input-field col s12 m6">
-           <select multiple id="components" name="components" class="input-text">
+                <select multiple id="components" name="components" class="input-text">
                 {% for c in components %} 
                   <option value="{{c.component}}">{{c.component}}</option>
                 {% endfor %}
             </select>
-                <label>Component - Choose your Components</label>
+                <label><span class="label-helper">Component - Choose your Components</span></label>
             </div>
             <div class="input-field col s12 m6">
                 <input placeholder="Leave blank if no value" name="duration" id="duration" type="text" class="validate input-text">
-                <label for="duration">Duration</label>
+                <label for="duration"><span class="label-helper">Duration</span></label>
             </div>
         </div>
         <div class="row">
+            <div class="input-field col s12 m6">
+                <input placeholder="Leave blank if no value" name="die_amount" id="die_amount" type="text" class="validate input-text">
+<label for="die_amount"><span class="label-helper"> Die amount - Leave blank if no die roll needed</span></label>
+            </div>
             <div class="input-field col s12 m6">
                 <select id="die_value" name="die_value" class="validate input-text" type="text">
                 {% for d in die %} 
                   <option value="{{d.die_value}}">{{d.die_value}}</option>
                 {% endfor %}
             </select>
-                <label>Die - Leave as "0" if no die roll needed </label>
-            </div>
-            <div class="input-field col s12 m6">
-                <input placeholder="Leave blank if no value" name="die_amount" id="die_amount" type="text" class="validate input-text">
-                <label for="die_amount">Die amount</label>
+                <label><span class="label-helper">Die - Leave as "0" if no die roll needed</span></label>
             </div>
         </div>
         <div class="row">
             <a href="{{url_for('browse_spells')}}" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">arrow_back</i></a>
-             <button class="btn-floating btn-large waves-effect waves-light blue" type="submit">
+            <button class="btn-floating btn-large waves-effect waves-light blue" type="submit">
                 <i class="material-icons right">add_circle_outline</i>
               </button>
         </div>

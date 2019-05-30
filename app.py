@@ -68,8 +68,7 @@ def delete_spell(spell_id):
     
     else:
         error = "You must be logged in to delete spells"
-        return render_template('view_spells.html', error = error, 
-        spells=mongo.db.spells.find(), components=mongo.db.components.find())
+        return render_template('login.html', error = error)
     
 # Update
 
@@ -101,7 +100,7 @@ def update_spell(spell_id):
     
 # Search
 
-# 29/05/19 basic accesdeing spell search below. works on c9 but crashes on heroku. 
+# 29/05/19 basic accesdeing spell search below. 
     
 @app.route('/search_levels', methods=['POST'])
 def search_levels():
@@ -110,6 +109,13 @@ def search_levels():
     print(results)
     return render_template('searched_spells.html', results=results, spells=spells)
     
+@app.route('/search_schools', methods=['POST'])
+def search_schools():
+    spells=mongo.db.spells
+    results=list(spells.find().sort("school", 1))
+    print(results)
+    return render_template('searched_spells.html', results=results, spells=spells)
+
 
 # Login/Register 
 
