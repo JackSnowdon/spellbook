@@ -43,7 +43,6 @@
     </div>
 </div>
 <div class="row">
-    
     {% for spell in spells %}
     <div class="col s12 l6 xl4">
         <div class="card-panel spell-box hoverable responsive-img">
@@ -79,17 +78,9 @@
                 {% endif %}
             </div>
         </div>
-        <div class="button-helper center-align">
+               <div class="button-helper center-align">
             <a href="{{url_for('edit_spell', spell_id=spell._id)}}" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">edit</i></a>
-            <!--- <a data-target="delete-link" class="btn-floating btn-large waves-effect waves-light modal-trigger red"><i class="material-icons">delete_forever</i></a> --->
-            <a data-toggle="modal" datatarget="#delete-link" class="btn-floating btn-large waves-effect waves-light red" spell_id="{{spell._id}}"><i class="material-icons">delete_forever</i></a>
-        </div>
-    </div>
-    <div id="delete-link" class="modal bottom-sheet nav-color value-text">
-        <div class="modal-content center-align">
-            <h4 class="spell-name">Are you sure you want to {{spell.spell_name}}?</h4>
-            <p class="modal-body">This will remove the spell permanently</p>
-            <a href="{{url_for('delete_spell', spell_id=spell._id)}}" class="btn-floating waves-effect waves-light btn-large modal-close red"><i class="material-icons">delete_forever</i></a>
+            <a href="{{url_for('delete_spell', spell_id=spell._id)}}" class="delete btn-floating btn-large waves-effect waves-light modal-trigger red" data-confirm="Are you sure you want to delete {{spell.spell_name}}?"><i class="material-icons">delete_forever</i></a>
         </div>
     </div>
     {% endfor %}

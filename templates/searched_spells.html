@@ -38,9 +38,9 @@
                 {% endif %}
             </div>
         </div>
-        <div class="button-helper">
+        <div class="button-helper center-align">
             <a href="{{url_for('edit_spell', spell_id=spell._id)}}" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">edit</i></a>
-            <a href="{{url_for('delete_spell', spell_id=spell._id)}}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
+            <a href="{{url_for('delete_spell', spell_id=spell._id)}}" class="delete btn-floating btn-large waves-effect waves-light modal-trigger red" data-confirm="Are you sure you want to delete {{spell.spell_name}}?"><i class="material-icons">delete_forever</i></a>
         </div>
     </div>
     {% endfor %}
