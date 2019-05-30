@@ -27,8 +27,7 @@
                     {% if 'username' in session %}
                     <li>You are logged in as <span class="capitalize">{{session['username']}}</span></li>
                     <li><a href="{{url_for('logout')}}">Logout</a></li>
-                    {% else %} 
-                    {% endif %}
+                    {% else %} {% endif %}
                 </ul>
 
             </div>
@@ -37,8 +36,7 @@
             <li><a class="subheader">Spellfinder</a></li>
             {% if 'username' in session %}
             <li><a class="subheader">You are logged in as <span class="capitalize">{{session['username']}}</span></a></li>
-            {% else %} 
-            {% endif %}
+            {% else %} {% endif %}
             <li>
                 <div class="divider"></div>
             </li>
@@ -48,8 +46,7 @@
             <li><a href="{{url_for('login')}}">Login</a></li>
             {% if 'username' in session %}
             <li><a href="{{url_for('logout')}}">Logout</a></li>
-            {% else %} 
-            {% endif %}
+            {% else %} {% endif %}
         </ul>
     </header>
     <div class="bg-color body-text">
@@ -67,6 +64,14 @@
             $('select').formSelect();
             $('.sidenav').sidenav();
             $('.modal').modal();
+        });
+
+        $(function() {
+            $('.delete-link').click(function(event) {
+                event.preventDefault();
+                var spell_id = $(this).attr('spell._id');
+                $('#EditModal').modal('show');
+            });
         });
     </script>
 </body>

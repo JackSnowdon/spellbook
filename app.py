@@ -107,14 +107,33 @@ def search_levels():
     spells=mongo.db.spells
     results=list(spells.find().sort("spell_level", 1))
     print(results)
-    return render_template('searched_spells.html', results=results, spells=spells)
+    return render_template('searched_spells.html', 
+            results=results, spells=spells)
     
 @app.route('/search_schools', methods=['POST'])
 def search_schools():
     spells=mongo.db.spells
     results=list(spells.find().sort("school", 1))
     print(results)
-    return render_template('searched_spells.html', results=results, spells=spells)
+    return render_template('searched_spells.html', 
+            results=results, spells=spells)
+
+
+@app.route('/search_casting', methods=['POST'])
+def search_casting():
+    spells=mongo.db.spells
+    results=list(spells.find().sort("casting_time", 1))
+    print(results)
+    return render_template('searched_spells.html', 
+            results=results, spells=spells)
+            
+@app.route('/search_duration', methods=['POST'])
+def search_duration():
+    spells=mongo.db.spells
+    results=list(spells.find().sort("duration", 1))
+    print(results)
+    return render_template('searched_spells.html', 
+            results=results, spells=spells)
 
 
 # Login/Register 
