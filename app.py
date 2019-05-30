@@ -32,7 +32,9 @@ def index ():
 
 @app.route('/browse_spells')
 def browse_spells():
-    return render_template("view_spells.html", spells=mongo.db.spells.find(),
+    spell=mongo.db.spells
+    results=list(spell.find().sort("spell_name", 1))
+    return render_template("view_spells.html", spells=results,
     components=mongo.db.components.find())
 
 # Create spells
