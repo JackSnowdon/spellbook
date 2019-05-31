@@ -2,17 +2,17 @@
 
 ## Spellfinder General
 
-Spellfinder General is companion app for both Adventurers and Dungeon Masters within the realms of Dungeons and Dragons 5e edition. This is my end of module project for Data Centric Development for Code Institutes Online full stack course.
+Spellfinder General is companion app for both Adventurers and Dungeon Masters within the realms of Dungeons and Dragons 5e edition. This is my end of module project for Data Centric Development for Code Institutes Online full stack course. This project has become a labour of love, and finding where to stop adding features to get the project handed in has been a learning curve for myself, however I intend to fork the workspace in order to futher develop the extre features as described within the readme. 
 
 Note:  Adventurers and Dungeon Masters will be collectively referred to as “players” from here on out, with DM being shorthand for Dungeon Master and DND referring to Dungeons and Dragons 5e edition
 
 ## UX
-The app has been designed to allow users to view, edit, and add spells to a database. The spells themselves have many defining features which can be targeted via a search function. This app also allows players to sign in and create their own character sheets to compliment their playing experience 
+The app has been designed to allow users to view, edit, and add spells to a database. There is a simple to use navbar, which guides to all major routes within the app, as well as back buttons for where a step back would be more appropriate. The spells themselves have many defining features which can be targeted via catgeory using button press's at the top of the view all spells screen. This app also allows players to sign in to compliment their playing experience.
 
 ### User Stories
 User 1 - Player - Adventurer 
 * To look up for spells for their character 
-* Searches driven by spell class and level
+* Searches driven by spell classes and level
 * Easy to use to augment real world gameplay
 
 User 2 - Player - Dungeon Master 
@@ -23,7 +23,9 @@ User 3 - Causal User/Potential player
 * Easy to read info source on a key element of DnD game play
 * Potentially including more eye catching media.
 
-Links to wireframes/schema
+# Wireframes
+[Index](static/wireframes/index_wf.png)
+
 For handling the data, I chose MongoDB as the database, due to its non relational format fitting the needs of the nature of DND (Escapism can’t be defined!) This allows certain spells with more conditions to be handled in a quicker manor. Using dbdiagram.io to create a mockup of the schema I chose to drill down the fixed outlines (Die Value, Spell level) into their own collections to allow each unique spell to pick values from said collections.
 
 ## Features
@@ -51,7 +53,7 @@ Spell List
 * Allow players to view, add, edit and delete spells from their own player spell lists
 
 Register/Login
-* Log in to view personalised character  spell lists
+* Log in to view personalised character spell lists
 * While logged into characters can add their own homebrew spells
 ## Testing 
 
