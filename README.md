@@ -106,7 +106,14 @@ Extra Spell infomation
  ## Testing
  
 To prove my testing I have created a testing tickbox spreadsheet which I have used throughout the dev process to keep track of what features and responsive design. 
-<<<<<<< HEAD
+
 * [Testing](static/wireframes/testing.png) 
-=======
->>>>>>> 89c4ac9588b30457a230244e2030f58f3c7e9950
+
+* For each feauture, I click through on every link possible and make sure there are no dead links. 
+* Users can only delete spells when logged in, and the name of the spell to be deleted is displayed on the alert pop up.
+* Login/Register error messages are handled through if loops passing an error message for jinja to display if needed.
+
+### Form Validation issues
+
+With adding and editing spells I hit a few issues regarding validation. Because of the nature of DND it is near impossible to narrow down exactly what values each key could have, and for this reason I have avoided major text validation within the add/edit forms. This can cause the forms to accept "nonsense" from users, however as I take this app into the future I will be looking for an effective way to both validate and give users freedom.
+
