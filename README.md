@@ -106,4 +106,7 @@ Extra Spell infomation
  ## Testing
  
 To prove my testing I have created a testing tickbox spreadsheet which I have used throughout the dev process to keep track of what features and responsive design. 
+<<<<<<< HEAD
 * [Testing](static/wireframes/testing.png) 
+=======
+>>>>>>> 89c4ac9588b30457a230244e2030f58f3c7e9950
