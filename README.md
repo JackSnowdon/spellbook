@@ -28,10 +28,11 @@ User 3 - Causal User/Potential player
 * [Spells](static/wireframes/spells_wf.png)
 * [Login/Register](static/wireframes/login_wf.png)
 * [Add/Edit Spell](static/wireframes/form_wf.png) 
+
 For handling the data, I chose MongoDB as the database, due to its non relational format fitting the needs of the nature of DND (Escapism can’t be defined!) This allows certain spells with more conditions to be handled in a quicker manor. Using dbdiagram.io to create a mockup of the schema I chose to drill down the fixed outlines (Die Value, Spell level) into their own collections to allow each unique spell to pick values from said collections.
 
 
-[Wireframe](static/schema/schema.png)
+* [Wireframe](static/schema/schema.png)
 
 
 ## Features
@@ -81,7 +82,7 @@ Extra Spell infomation
 * Description of spells to be added and displayed in a larger clickable card format
 * Small Truncation on description existing spell cards to invite the user to click ahead
 
-## Testing 
+## Technologies used 
 
 - HTML5/CSS3
   - The project uses HTML5/CSS3 To build and style.
@@ -101,3 +102,7 @@ Extra Spell infomation
   - The project uses PyMongo as the link between my project and MongoDB
 - [Flask_PyMongo](https://flask-pymongo.readthedocs.io/en/latest/)
   - Flask-PyMongo bridges Flask and PyMongo and provides some convenience helpers.
+  
+ ## Testing
+ 
+To prove my testing I have created a testing tickbox spreadsheet which I have used throughout the dev process to keep track of what features and responsive design. 
