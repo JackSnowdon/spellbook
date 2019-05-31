@@ -28,9 +28,12 @@ User 3 - Causal User/Potential player
 [Spells](static/wireframes/spells_wf.png)
 [Login/Register](static/wireframes/login_wf.png)
 [Add/Edit Spell](static/wireframes/form_wf.png)
-[Login/Register](static/schema/schema.png)
+
 
 For handling the data, I chose MongoDB as the database, due to its non relational format fitting the needs of the nature of DND (Escapism can’t be defined!) This allows certain spells with more conditions to be handled in a quicker manor. Using dbdiagram.io to create a mockup of the schema I chose to drill down the fixed outlines (Die Value, Spell level) into their own collections to allow each unique spell to pick values from said collections.
+
+[Wireframe](static/schema/schema.png)
+
 
 ## Features
 ### Existing Features
