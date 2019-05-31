@@ -117,3 +117,22 @@ To prove my testing I have created a testing tickbox spreadsheet which I have us
 
 With adding and editing spells I hit a few issues regarding validation. Because of the nature of DND it is near impossible to narrow down exactly what values each key could have, and for this reason I have avoided major text validation within the add/edit forms. This can cause the forms to accept "nonsense" from users, however as I take this app into the future I will be looking for an effective way to both validate and give users freedom.
 
+## Deployment
+
+The code is hosted on [Github](https://github.com/JackSnowdon/spellbook) with a live version being hosted on [Heroku](https://spellbookfinder.herokuapp.com/) 
+
+Using an if loop, the code knows where it is being hosted (Locally or Heroku) and sets the vars either using config.py(not pushed to git hub) or using heroku config vars within the app. These need to be set if the user wishes to host on Heroku.
+
+To deploy locally:
+
+* Clone repository, open terminal in repository folder
+* pip3 install -r requirements.txt
+* run python app.py
+* Set the environment variables. Ie. set IP to 127.0.0.1 and the others as normal
+* Open http://localhost:<PORT>
+
+## Credits
+
+* All source material is from [Dungeons and Dragons](https://dnd.wizards.com/) 5e edition. This is not intented for commerical use and only as an education tool
+* Spellbook and Angel images are freesource images from the internet
+
