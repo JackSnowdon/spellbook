@@ -23,8 +23,12 @@ User 3 - Causal User/Potential player
 * Easy to read info source on a key element of DnD game play
 * Potentially including more eye catching media.
 
-# Wireframes
+### Wireframes
 [Index](static/wireframes/index_wf.png)
+[Spells](static/wireframes/spells_wf.png)
+[Login/Register](static/wireframes/login_wf.png)
+[Add/Edit Spell](static/wireframes/form_wf.png)
+[Login/Register](static/schema/schema.png)
 
 For handling the data, I chose MongoDB as the database, due to its non relational format fitting the needs of the nature of DND (Escapism can’t be defined!) This allows certain spells with more conditions to be handled in a quicker manor. Using dbdiagram.io to create a mockup of the schema I chose to drill down the fixed outlines (Die Value, Spell level) into their own collections to allow each unique spell to pick values from said collections.
 
@@ -32,29 +36,49 @@ For handling the data, I chose MongoDB as the database, due to its non relationa
 ### Existing Features
 
 Spellfinder
-* Allow users to search for spells filtering and ordering using key queries
-* Allow users to add, edit and delete spells.
+* Allow users to add, edit and delete spells, be them homebrew or offical spells
+* When editing spells, spellfinder goes into mongodb and displays their current values
+
+Key Searches 
+* As this is a currently a smaller app I decided to go for key search terms to display in order rather than text indexing
+* Basic search functions up and running, see next section for future details
+
+Register/Login
+* Users can register and login - Once logged in their username is displayed 
+* Only logged in users can delete spells
+* Login error messages redirected to approite paths 
 
 Navbar 
 * Easy to use navbar on both full screen and collapseable on smaller screens
-
-
+* Displays if user is logged in
+* Logout function only displays if user is logged in
 
 ### Features left to implement 
+
+### Extra User Features
 
 Using Spells
 * Allow players to interact with a rng generator to use the spells while playing
 
-Spell slots
+Spell Slots
 * Players have a certain amount of spell slots, which act as MP (Magic points)
 * A new feature would be to include this within Spellfinder General
 
 Spell List
-* Allow players to view, add, edit and delete spells from their own player spell lists
+* Allow users players to view, add, edit and delete spells from their own player spell lists
 
-Register/Login
-* Log in to view personalised character spell lists
-* While logged into characters can add their own homebrew spells
+Password 
+* User logins will require passwords in the future
+
+### Extra app features
+
+In Depth Searching
+* Drill down deeper into search terms and sorting/limiting the results back
+
+Extra Spell infomation 
+* Description of spells to be added and displayed in a larger clickable card format
+* Small Truncation on description existing spell cards to invite the user to click ahead
+
 ## Testing 
 
 - HTML5/CSS3
